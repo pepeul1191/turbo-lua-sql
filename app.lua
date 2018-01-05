@@ -8,6 +8,7 @@ end
 
 local app = turbo.web.Application:new({
   {"/$", home.Index},
+  {"/static/(.*)$", turbo.web.StaticFileHandler, "static/"},
   {"/hello", HelloWorldHandler},
 })
 
