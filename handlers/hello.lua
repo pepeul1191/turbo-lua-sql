@@ -1,9 +1,10 @@
 local turbo = require("turbo")
+local Index = class("Index", turbo.web.RequestHandler)
 local M = {}
 
-local Index = class("Index", turbo.web.RequestHandler)
-
 function Index:on_create()
+  self:add_header("Server", "Ubuntu")
+  self:add_header("X-Powered-By", "\bLua(?: ([\\d.]+))?\\;version:\\1")
   print("HELLO.LUA - Before:prepare")
 end
 
