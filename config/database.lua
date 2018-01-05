@@ -6,5 +6,5 @@ local database = {
 }
 local M = {}
 
-M.database = database
+M.db = database
 return M
