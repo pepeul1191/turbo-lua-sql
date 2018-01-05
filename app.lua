@@ -1,5 +1,5 @@
 local turbo = require("turbo")
-local home = require("handlers.home")
+local handlerHome = require("handlers.home")
 
 local HelloWorldHandler = class("HelloWorldHandler", turbo.web.RequestHandler)
 function HelloWorldHandler:get()
@@ -7,7 +7,7 @@ function HelloWorldHandler:get()
 end
 
 local app = turbo.web.Application:new({
-  {"/$", home.Index},
+  {"/$", handlerHome.Index},
   {"/static/(.*)$", turbo.web.StaticFileHandler, "static/"},
   {"/hello", HelloWorldHandler},
 })

@@ -1,4 +1,4 @@
-# Sockets Lua
+# Turbo Lua Boilerplate
 
 Instlación de Turbo:
 
@@ -9,7 +9,14 @@ Arrancar la aplicación:
 
     $ luajit app.lua
 
+Arrancar la aplicación con autoreload ante cambios:
+
+    $ tubovisor app.lua
+    $ tubovisor app.lua –ignore static
+
+
 ### Fuentes
 
 + http://turbo.readthedocs.io/en/latest/get_started.html
 + https://github.com/pepeul1191/lapis-pp
++ http://turbo.readthedocs.io/en/latest/turbovisor.html
