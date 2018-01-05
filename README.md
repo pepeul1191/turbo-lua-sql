@@ -20,3 +20,5 @@ Arrancar la aplicación con autoreload ante cambios:
 + http://turbo.readthedocs.io/en/latest/get_started.html
 + https://github.com/pepeul1191/lapis-pp
 + http://turbo.readthedocs.io/en/latest/turbovisor.html
++ https://github.com/pepeul1191/sockets
++ https://github.com/kernelsauce/turbo/blob/master/examples/chatapp/chatapp.lua
