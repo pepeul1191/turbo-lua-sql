@@ -1,24 +1,17 @@
 local turbo = require("turbo")
-local WSMensaje = class("WSMensaje", turbo.websocket.WebSocketHandler)
+local Index = class("Index", turbo.web.RequestHandler)
+local json = require("json")
 local M = {}
 
-function WSMensaje:prepare()
-  local tipo = self:get_argument("tipo")
-  print(tipo)
+function Index:on_create()
+  self:add_header("Server", "Ubuntu")
+  self:add_header("X-Powered-By", "\bLua(?: ([\\d.]+))?\\;version:\\1")
+  print("HELLO.LUA - Before:prepare")
 end
 
-function WSMensaje:open(msg)
-  local tipo = self:get_argument("tipo")
-  local id_usuario = self:get_argument("id_usuario")
-  --self.options.chatroom:subscribe(id_usuario, self)
-  self:write_message("OPEN!!!")
+function Index:get()
+  self:write("Mensajes")
 end
 
-function WSMensaje:on_message(msg)
-  local tipo = self:get_argument("tipo")
-  print(tipo)
-  self:write_message("Hello World???")
-end
-
-M.WSMensaje = WSMensaje
+M.Index = Index
 return M
