@@ -19,18 +19,22 @@ function WSMensaje:open(msg)
   if conversacion == nil then
     local conversacion_id = _conversacion.crear(empresa_id, usuario_id)
     _mensaje.crear(conversacion_id)
-    rpta = json.encode({conversacion_id = conversacion.id}) 
+    rpta = json.encode({evento = "open", conversacion_id = conversacion.id}) 
   else
     local mensajes = _mensaje.cargar(conversacion.id)
-    rpta = json.encode({conversacion_id = conversacion.id, mensajes = mensajes }) 
+    rpta = json.encode({evento = "open", conversacion_id = conversacion.id, mensajes = mensajes }) 
   end
   self:write_message(rpta)
 end
 
 function WSMensaje:on_message(msg)
-  local tipo = self:get_argument("tipo")
-  print(tipo)
-  self:write_message("Hello World???")
+  local data = json.decode(msg)
+  local usuario_id = self:get_argument("usuario_id")
+  local empresa_id = self:get_argument("empresa_id")
+  local conversacion_id = data.conversacion_id
+  local mensaje = {conversacion_id = conversacion_id, usuario_id = usuario_id, mensaje = data.mensaje, momento = '05/17/2017 05:17:00 PM'}
+  _mensaje.actualizar(conversacion_id, usuario_id, mensaje)
+  self:write_message({evento = "on_message", mensaje = data.mensaje})
 end
 
 M.WSMensaje = WSMensaje

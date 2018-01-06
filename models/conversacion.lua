@@ -58,15 +58,7 @@ function crear(empresa_id, usuario_id)
   return rpta.generated_keys[1]
 end
 
-function editar()
-end
-
-function eliminar()
-end
-
 M.listar = listar
 M.existe = existe
 M.crear = crear
-M.editar = editar
-M.eliminar = eliminar
 return M

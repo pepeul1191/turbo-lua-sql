@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>Index Demo</title>
 	<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="bower_components/jquery-simple-websocket/dist/jquery.simple.websocket.min.js" type="text/javascript"></script>
@@ -9,6 +10,7 @@
 	<h1>Prueba Web Sockets</h1>
 	idEmpresa <input type="text" name="" id="idEmpresa" value="1"><br>
 	idUsuario <input type="text" name="" id="idUSuario" value="1"><br>
+	idConversacion <input type="text" name="" id="idConversacion"><br>
 	Mensaje:<br>
 	<textarea id="texto"></textarea><br>
 	<button id="btnConectarse">Conectarse</button><button id="btnEnviar">Enviar</button><button id="btnCerrar">Cerrar</button><button id="btnLoop">Loop</button><button id="btnLimpiar">Limpiar</button><br>
@@ -19,17 +21,26 @@
 			$("#btnConectarse").click(function(event){
 				var empresa_id = $("#idEmpresa").val();
 				var usuario_id = $("#idUSuario").val();
+				var conversacion_id = $("#idConversacion").val();
 				webSocket = $.simpleWebSocket({ url: 'ws://127.0.0.1:8888/ws/mensaje?nick=pp&tipo=subscritor&empresa_id=' + empresa_id + '&usuario_id=' + usuario_id});
 				webSocket.listen(function(message) {
 					console.log(message);
-				    var li = "<li>" + message + "</li>";
-				    $("#ulMensajes").append(li);
+					if(message["evento"] == "open"){
+						$("#idConversacion").val(message["conversacion_id"]);
+						var li = "<li>" + 'Conexión OK' + "</li>";
+						$("#ulMensajes").append(li);
+					}
+					if(message["evento"] == "on_message"){
+						var li = "<li>" + message["mensaje"] + "</li>";
+						$("#ulMensajes").append(li);
+					}
 				});
 			});
 		    $("#btnEnviar").click(function(event){
 				var mensaje = $("#texto").val();
-				webSocket.send({ 'mensaje': mensaje }).done(function(message) {
-				    // message send
+				var conversacion_id = $("#idConversacion").val();
+				webSocket.send({ 'mensaje': mensaje, 'conversacion_id':conversacion_id }).done(function(message) {
+					//console.log(message);
 				}).fail(function(message) {
 				    // error sending
 				    console.log(message);
