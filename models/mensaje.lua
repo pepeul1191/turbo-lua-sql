@@ -37,7 +37,11 @@ function cargar(conversacion_id)
       )
     end
   )
-  return rpta
+  if rpta.mensajes ~= nil then
+    return nil
+  else
+    return rpta.mensajes
+  end
 end
 
 function crear(conversacion_id)

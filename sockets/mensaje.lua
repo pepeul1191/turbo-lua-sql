@@ -18,10 +18,11 @@ function WSMensaje:open(msg)
   local conversacion = _conversacion.existe(empresa_id, usuario_id)
   if conversacion == nil then
     local conversacion_id = _conversacion.crear(empresa_id, usuario_id)
-    rpta = _mensaje.crear(conversacion_id)
+    _mensaje.crear(conversacion_id)
+    rpta = json.encode({conversacion_id = conversacion.id}) 
   else
     local mensajes = _mensaje.cargar(conversacion.id)
-    rpta = json.encode(mensajes) 
+    rpta = json.encode({conversacion_id = conversacion.id, mensajes = mensajes }) 
   end
   self:write_message(rpta)
 end

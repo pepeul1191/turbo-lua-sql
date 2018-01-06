@@ -21,6 +21,7 @@
 				var usuario_id = $("#idUSuario").val();
 				webSocket = $.simpleWebSocket({ url: 'ws://127.0.0.1:8888/ws/mensaje?nick=pp&tipo=subscritor&empresa_id=' + empresa_id + '&usuario_id=' + usuario_id});
 				webSocket.listen(function(message) {
+					console.log(message);
 				    var li = "<li>" + message + "</li>";
 				    $("#ulMensajes").append(li);
 				});
