@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1>Prueba Web Sockets</h1>
-	idSensor <input type="text" name="" id="idSensor" value="1"><br>
+	idEmpresa <input type="text" name="" id="idEmpresa" value="1"><br>
 	idUsuario <input type="text" name="" id="idUSuario" value="1"><br>
 	Mensaje:<br>
 	<textarea id="texto"></textarea><br>
@@ -17,9 +17,9 @@
 		$( document ).ready(function() {
 			var webSocket = null;
 			$("#btnConectarse").click(function(event){
-				var id_sensor = $("#idSensor").val();
-				var id_usuario = $("#idUSuario").val();
-				webSocket = $.simpleWebSocket({ url: 'ws://127.0.0.1:8888/ws/mensaje?nick=pp&tipo=subscritor&id_sensor=' + id_sensor + '&id_usuario=' + id_usuario});
+				var empresa_id = $("#idEmpresa").val();
+				var usuario_id = $("#idUSuario").val();
+				webSocket = $.simpleWebSocket({ url: 'ws://127.0.0.1:8888/ws/mensaje?nick=pp&tipo=subscritor&empresa_id=' + empresa_id + '&usuario_id=' + usuario_id});
 				webSocket.listen(function(message) {
 				    var li = "<li>" + message + "</li>";
 				    $("#ulMensajes").append(li);

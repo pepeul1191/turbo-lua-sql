@@ -3,7 +3,7 @@
 Instlación de Turbo:
 
     $ sudo apt-get install lua5.1 luajit luarocks git build-essential libssl-dev
-    $ sudo luarocks install turbo
+    $ sudo luarocks install turbo inspect
 
 Instalación de driver para RethinkDB:
 
@@ -27,3 +27,4 @@ Arrancar la aplicación con autoreload ante cambios:
 + https://github.com/pepeul1191/sockets
 + https://github.com/kernelsauce/turbo/blob/master/examples/chatapp/chatapp.lua
 + https://github.com/grandquista/Lua-ReQL/wiki/index
++ https://github.com/kikito/inspect.lua
