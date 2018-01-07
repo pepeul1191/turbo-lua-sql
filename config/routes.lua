@@ -1,11 +1,12 @@
 local turbo = require("turbo")
-local chat = require("config.chat_room")
 -- handlers
 local HandlerHello = require("handlers.hello")
 local HandlerHome = require("handlers.home")
 local HandlerMensaje = require("handlers.mensaje")
 -- sockets
 local SocketMensaje = require("sockets.mensaje")
+-- chat
+local chat = require("config.chat_room")
 -- rutas
 local routes = {
   {"^/$", HandlerHome.Index},

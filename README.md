@@ -15,9 +15,13 @@ Arrancar la aplicación:
 
 Arrancar la aplicación con autoreload ante cambios:
 
-    $ tubovisor app.lua
-    $ tubovisor app.lua –ignore static
+    $ turbovisor app.lua
+    $ turbovisor app.lua –ignore static
 
+Contar la longitud de una tabla
+
+    local count = 0
+    for _ in pairs(sockets) do count = count + 1 end
 
 ### Fuentes
 
