@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery-simple-websocket": "*"
+    "jquery-simple-websocket": "*",
+    "bootstrap": "^3.3.7"
   }
 }

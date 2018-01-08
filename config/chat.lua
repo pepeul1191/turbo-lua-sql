@@ -26,7 +26,7 @@ function entrar(conversacion_id, usuario_id, socket)
       end
     end
     if existe_usuario == false then
-      local t = {{usuario_id = usuario_id, socket = socket}}
+      local t = {usuarios = usuario_id, socket = socket}
       table.insert(conversacion, t)
       sockets[conversacion_id] = conversacion
     end

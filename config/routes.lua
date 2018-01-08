@@ -9,6 +9,7 @@ local SocketMensaje = require("sockets.mensaje")
 local routes = {
   {"^/$", HandlerHome.Index},
   {"^/static/(.*)$", turbo.web.StaticFileHandler, "static/"},
+  {"^/chat", turbo.web.StaticFileHandler, "static/index.html"},
   {"^/hello", HandlerHello.Index},
   {"^/mensaje", HandlerMensaje.Index},
   {"^/ws/mensaje", SocketMensaje.WSMensaje},

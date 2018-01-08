@@ -18,6 +18,17 @@ function has_key(tabla, key)
   return existe
 end
 
+function exist(tabla, item)
+  rpta = false
+  for k, v in pairs(tabla) do
+    if v == item then 
+      return true 
+    end
+  end
+  return rpta
+end
+
 M.count = count
 M.has_key = has_key
+M.exist = exist
 return M
