@@ -50,16 +50,12 @@ function actualizar(conversacion_id, usuario_id, mensaje)
         for _, row in ipairs(results) do
           mensajes = row.mensajes
         end
-      end
-      )
-    end
-  )
-  r.connect(database.db, function(err, conn)
-      r.reql.table("mensajes").filter{conversacion_id = conversacion_id}.update({mensajes = mensajes}).run(conn, function(err, cur)
-        local results, err = cur.to_array()
-        if not results then
-          -- handle err
-        end
+        table.insert(mensajes, mensaje)
+        r.reql.table("mensajes").filter{conversacion_id = conversacion_id}.update({mensajes = mensajes}).run(conn, 
+          function(err, cur)
+            local results, err = cur.to_array()
+          end
+        )
       end
       )
     end
