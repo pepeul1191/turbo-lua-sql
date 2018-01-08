@@ -18,11 +18,6 @@ Arrancar la aplicación con autoreload ante cambios:
     $ turbovisor app.lua
     $ turbovisor app.lua –ignore static
 
-Contar la longitud de una tabla
-
-    local count = 0
-    for _ in pairs(sockets) do count = count + 1 end
-
 ### Fuentes
 
 + http://turbo.readthedocs.io/en/latest/get_started.html

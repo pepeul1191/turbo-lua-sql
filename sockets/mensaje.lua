@@ -34,9 +34,17 @@ function WSMensaje:on_message(msg)
   local usuario_id = self:get_argument("usuario_id")
   local empresa_id = self:get_argument("empresa_id")
   local conversacion_id = data.conversacion_id
-  local mensaje = {conversacion_id = conversacion_id, usuario_id = usuario_id, mensaje = data.mensaje, momento = turbo.util.gettimeofday()}
+  local momento = turbo.util.gettimeofday()
+  local mensaje = {conversacion_id = conversacion_id, usuario_id = usuario_id, mensaje = data.mensaje, momento = momento}
   _mensaje.actualizar(conversacion_id, usuario_id, mensaje)
-  self:write_message({evento = "on_message", mensaje = data.mensaje})
+  chat.mandar(conversacion_id, data.mensaje, momento)
+end
+
+function WSMensaje:on_close()
+  --local usuario_id = self:get_argument("usuario_id")
+  --local conversacion_id = data.conversacion_id
+  --chat.salir(conversacion_id, usuario_id)
+  turbo.log.notice("User disconnected")
 end
 
 M.WSMensaje = WSMensaje
