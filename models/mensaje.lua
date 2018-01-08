@@ -21,7 +21,6 @@ function cargar(conversacion_id)
   return rpta.mensajes
 end
 
-
 function crear(conversacion_id)
   local rpta = nil
   r.connect(database.db, function(err, conn)
