@@ -48,12 +48,13 @@
 						var li = "<li>" + 'Conexión OK' + "</li>";
 						$("#ulMensajes").append(li);
 						for(var i = 0; i < message["mensajes"].length; i++){
-							var li = "<li>" + new Date(message["mensajes"][i]["momento"]) + " - " + message["mensajes"][i]["mensaje"] + "</li>";
+							var li = "<li>" + message["mensajes"][i]["usuario_id"] + " - " + new Date(message["mensajes"][i]["momento"]) + " - " + message["mensajes"][i]["mensaje"] + "</li>";
 							$("#ulMensajes").append(li);
 						}
 					}
 					if(message["evento"] == "on_message"){
 						var li = "<li>" + message["mensaje"] + "</li>";
+						var li = "<li>" + message["usuario_id"] + " - " + new Date(message["momento"]) + " - " + message["mensaje"] + "</li>";
 						$("#ulMensajes").append(li);
 					}
 				});
@@ -62,8 +63,8 @@
 				var mensaje = $("#texto").val();
 				var conversacion_id = $("#idConversacion").val();
 				var usuario_id = $("#idConversacionUsuario").val();
-				webSocket.send({ 'mensaje': mensaje, 'conversacion_id':conversacion_id, 'usuarusuario_ida': usuario_id }).done(function(message) {
-					//console.log(message);
+				webSocket.send({ 'mensaje': mensaje, 'conversacion_id':conversacion_id, 'usuario_id': usuario_id }).done(function(message) {
+					console.log(message);
 				}).fail(function(message) {
 				    // error sending
 				    console.log(message);

@@ -36,11 +36,11 @@ function entrar(conversacion_id, usuario_id, socket)
   end
 end
 
-function mandar(conversacion_id, mensaje, momento)
+function mandar(conversacion_id, mensaje, momento, usuario_id)
   local conversacion = sockets[conversacion_id]
   for i = 1, utils.count(conversacion) do
     socket = conversacion[i]["socket"]
-    local data = json.encode({evento = "on_message", mensaje = mensaje})
+    local data = json.encode({evento = "on_message", mensaje = mensaje, usuario_id = usuario_id, momento = momento})
     socket:write_message(data)
   end
 end

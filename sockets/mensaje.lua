@@ -38,7 +38,7 @@ function WSMensaje:on_message(msg)
   local momento = turbo.util.gettimeofday()
   local mensaje = {usuario_id = usuario_id, mensaje = data.mensaje, momento = momento}
   _mensaje.actualizar(conversacion_id, usuario_id, mensaje)
-  chat.mandar(conversacion_id, data.mensaje, momento)
+  chat.mandar(conversacion_id, data.mensaje, momento, usuario_id)
 end
 
 function WSMensaje:on_close()
