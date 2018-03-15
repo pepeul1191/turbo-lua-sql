@@ -5,7 +5,7 @@ local env  = sqlite3.sqlite3()
 
 function conn()
   local conn = env:connect('db/ubicaciones.db')
-  return conn
+  return assert(conn)
 end
 
 M.conn = conn

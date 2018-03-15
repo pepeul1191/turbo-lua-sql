@@ -1,17 +1,16 @@
 local turbo = require("turbo")
 -- handlers
-local HandlerHello = require("handlers.hello")
 local HandlerHome = require("handlers.home")
-local HandlerMensaje = require("handlers.mensaje")
 local HandlerDepartamento = require("handlers.departamento")
+local HandlerProvincia = require("handlers.provincia")
 -- sockets
 -- rutas
 local routes = {
-  {"^/$", HandlerHome.Index},
   {"^/static/(.*)$", turbo.web.StaticFileHandler, "static/"},
-  {"^/chat", turbo.web.StaticFileHandler, "static/index.html"},
-  {"^/hello", HandlerHello.Index},
+  {"^/$", turbo.web.StaticFileHandler, "static/index.html"},
+  {"^/home", HandlerHome.Index},
   {"^/departamento/listar", HandlerDepartamento.Listar},
+  {"^/provincia/listar/(%d+)", HandlerProvincia.Listar},
 }
 
 local M = {}
