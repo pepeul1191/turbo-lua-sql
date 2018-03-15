@@ -1,7 +1,7 @@
-local turbo = require("turbo")
-local Listar = class("Listar", turbo.web.RequestHandler)
-local Buscar = class("Buscar", turbo.web.RequestHandler)
-local NombreCompleto = class("NombreCompleto", turbo.web.RequestHandler)
+local base = require("config.base")
+local Listar = class("Listar", base.Base)
+local Buscar = class("Buscar", base.Base)
+local NombreCompleto = class("NombreCompleto", base.Base)
 local _distrito = require("models.distrito")
 local json = require("json")
 local M = {}
