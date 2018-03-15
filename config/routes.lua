@@ -12,6 +12,7 @@ local routes = {
   {"^/home", HandlerHome.Index},
   {"^/departamento/listar", HandlerDepartamento.Listar},
   {"^/provincia/listar/(%d+)", HandlerProvincia.Listar},
+  {"^/distrito/buscar", HandlerDistrito.Buscar},
   {"^/distrito/listar/(%d+)", HandlerDistrito.Listar},
 }
 local M = {}
