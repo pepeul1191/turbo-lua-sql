@@ -21,6 +21,23 @@ function buscar(nombre)
   end
 end
 
+function nombre_completo(distrito_id)
+  local sql = string.format("SELECT nombre FROM vw_distrito_provincia_departamento WHERE id = %s", distrito_id)
+  cursor,error_string = database.conn():execute(sql)
+  if error_string then
+    return {error = error_string}
+  else
+    local rpta = ""
+    row = cursor:fetch ({}, "a")
+    while row do
+      rpta = row.nombre
+      row = cursor:fetch (row, "a")
+    end
+    cursor:close()
+    return rpta
+  end
+end
+
 function listar(provincia_id)
   local sql = string.format("SELECT * FROM distritos WHERE provincia_id = %s", provincia_id)
   cursor,error_string = database.conn():execute(sql)
@@ -42,5 +59,6 @@ function listar(provincia_id)
 end
 
 M.buscar = buscar
+M.nombre_completo = nombre_completo
 M.listar = listar
 return M
