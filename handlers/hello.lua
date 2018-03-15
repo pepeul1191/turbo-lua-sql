@@ -1,7 +1,6 @@
 local turbo = require("turbo")
 local Index = class("Index", turbo.web.RequestHandler)
 local json = require("json")
-local _conversacion = require("models.conversacion")
 local M = {}
 
 function Index:on_create()
@@ -11,9 +10,7 @@ function Index:on_create()
 end
 
 function Index:get()
-  local conversaciones = _conversacion.listar()
-  --self:write("Hello World!")
-  self:write(json.encode(conversaciones))
+  self:write("Hello World!")
 end
 
 M.Index = Index

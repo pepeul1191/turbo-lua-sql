@@ -3,11 +3,11 @@
 Instlación de Turbo:
 
     $ sudo apt-get install lua5.1 luajit luarocks git build-essential libssl-dev
-    $ sudo luarocks install turbo inspect
+    $ sudo luarocks install turbo inspect json4lua
 
-Instalación de driver para RethinkDB:
+Instalación de driver para Sqlite3:
 
-    $ sudo luarocks install lua-reql
+    $ sudo luarocks install luasql-sqlite3
 
 Arrancar la aplicación:
 
@@ -24,6 +24,6 @@ Arrancar la aplicación con autoreload ante cambios:
 + https://github.com/pepeul1191/lapis-pp
 + http://turbo.readthedocs.io/en/latest/turbovisor.html
 + https://github.com/pepeul1191/sockets
-+ https://github.com/kernelsauce/turbo/blob/master/examples/chatapp/chatapp.lua
-+ https://github.com/grandquista/Lua-ReQL/wiki/index
++ https://www.tutorialspoint.com/lua/lua_database_access.htm
++ https://keplerproject.github.io/luasql/
 + https://github.com/kikito/inspect.lua
