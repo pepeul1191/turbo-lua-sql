@@ -3,6 +3,7 @@ local turbo = require("turbo")
 local HandlerHome = require("handlers.home")
 local HandlerDepartamento = require("handlers.departamento")
 local HandlerProvincia = require("handlers.provincia")
+local HandlerDistrito = require("handlers.distrito")
 -- sockets
 -- rutas
 local routes = {
@@ -11,6 +12,7 @@ local routes = {
   {"^/home", HandlerHome.Index},
   {"^/departamento/listar", HandlerDepartamento.Listar},
   {"^/provincia/listar/(%d+)", HandlerProvincia.Listar},
+  {"^/distrito/listar/(%d+)", HandlerDistrito.Listar},
 }
 local M = {}
 
