@@ -2,7 +2,7 @@ local database = require("config.database")
 local M = {}
 
 function listar()
-  cursor,error_string = database.conn:execute([[select * from departamentos]])
+  cursor,error_string = database.conn():execute([[select * from departamentos]])
   if error_string then
     return {error = error_string}
   else
@@ -15,6 +15,10 @@ function listar()
       })
       row = cursor:fetch (row, "a")
     end
+    cursor:close()
+    --database.conn:close()
+    --database.env:close()
+    --database.close(database.conn())
     return rpta
   end
 end

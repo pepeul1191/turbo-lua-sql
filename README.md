@@ -1,4 +1,4 @@
-# Turbo Lua Boilerplate
+# Turbo Lua SQL Boilerplate
 
 Instlación de Turbo:
 
