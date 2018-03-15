@@ -12,7 +12,7 @@ local routes = {
   {"^/departamento/listar", HandlerDepartamento.Listar},
   {"^/provincia/listar/(%d+)", HandlerProvincia.Listar},
 }
-
 local M = {}
+
 M.routes = routes
 return M
