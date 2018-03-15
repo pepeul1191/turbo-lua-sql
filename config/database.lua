@@ -1,10 +1,8 @@
-local database = {
-  host = 'localhost',
-  port = 28015,
-  db = 'demo',
-  --password = 'pass'
-}
+local sqlite3 = require "luasql.sqlite3"
 local M = {}
 
-M.db = database
+local env  = sqlite3.sqlite3()
+local conn = env:connect('db/ubicaciones.db')
+
+M.conn = conn
 return M
