@@ -27,3 +27,4 @@ Arrancar la aplicación con autoreload ante cambios:
 + https://www.tutorialspoint.com/lua/lua_database_access.htm
 + https://keplerproject.github.io/luasql/
 + https://github.com/kikito/inspect.lua
++ https://realtimelogic.com/ba/doc/en/lua/luasql.html
