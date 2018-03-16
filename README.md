@@ -9,6 +9,10 @@ Instalación de driver para Sqlite3:
 
     $ sudo luarocks install luasql-sqlite3
 
+Instalación de LuaMysql
+
+    $ sudo apt-get install lua-sql-mysql
+
 Arrancar la aplicación:
 
     $ luajit app.lua
@@ -28,3 +32,4 @@ Arrancar la aplicación con autoreload ante cambios:
 + https://keplerproject.github.io/luasql/
 + https://github.com/kikito/inspect.lua
 + https://realtimelogic.com/ba/doc/en/lua/luasql.html
++ https://stackoverflow.com/questions/32666803/install-luasql-on-ubuntu

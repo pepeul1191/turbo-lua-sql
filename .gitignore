@@ -5,5 +5,4 @@ static/dist/
 .DS_Store
 .~lock.data.ods#
 Gemfile.lock
-demo.lua
 db/ubicaciones.db
